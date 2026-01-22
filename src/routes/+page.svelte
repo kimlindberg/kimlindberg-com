@@ -2,7 +2,6 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import { themeOverride } from '$lib/stores/theme';
-	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';
 	import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/components/ui/tooltip';
