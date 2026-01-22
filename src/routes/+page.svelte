@@ -60,7 +60,7 @@
 <main class="min-h-screen bg-background text-foreground">
   <div class="mx-auto max-w-2xl px-6 py-16 sm:py-24" use:reveal={{ delay: 30, y: 10 }}>
     <div use:reveal={{ delay: 80, y: 10 }}>
-      <div class="border-muted/60 shadow-sm transition-transform duration-200 motion-reduce:transition-none hover:-translate-y-0.5">
+      <Card class="border-muted/60 shadow-sm transition-transform duration-200 motion-reduce:transition-none hover:-translate-y-0.5">
         <div use:reveal={{ delay: 120, y: 8 }}>
           <CardHeader class="space-y-6">
             <div class="flex items-start justify-between gap-4">
