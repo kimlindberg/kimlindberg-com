@@ -1,42 +1,27 @@
-# sv
+# kimlindberg.com
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal website for **Kim Lindberg**.
 
-## Creating a project
+A minimal, static site that serves as a professional landing page: short bio, background, and links. Intentionally simple — closer to a digital business card than a blog or portfolio.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Live at: **https://kimlindberg.com**
 
-```sh
-# create a new project
-npx sv create my-app
-```
+---
 
-To recreate this project with the same configuration:
+## Tech stack
 
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --add eslint prettier tailwindcss="plugins:none" --install npm kimlindberg-home
-```
+- **SvelteKit** – app framework
+- **Tailwind CSS** – styling
+- **shadcn-svelte** (Bits UI) – UI primitives
+- **Lucide** – icons
+- **Vercel** – hosting and deployments
 
-## Developing
+The site uses a lightweight design system with CSS variables for theming (including light/dark mode) and minimal client-side logic.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+---
 
-```sh
+## Development
+
+```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
