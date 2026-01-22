@@ -91,21 +91,25 @@
 						<Separator />
 
 						<div class="grid gap-4 text-base text-muted-foreground">
-							<div class="flex items-start gap-3">
-								<Spinner class="text-purple-500" />
-								<p>
-									<span class="font-medium text-foreground">Now:</span>
-									{@html profile.now}
-								</p>
-							</div>
+							<div class="flex gap-2.5 text-base leading-7">
+  <span class="mt-[3px] inline-flex h-5 w-5 items-center justify-center text-purple-500">
+    <Spinner />
+  </span>
 
-							<div class="flex items-start gap-3">
-								<History class="mt-0.5 h-4 w-4" />
-								<p>
-									<span class="font-medium text-foreground">Previously:</span>
-									{@html profile.previously}
-								</p>
-							</div>
+  <p class="text-muted-foreground">
+    <span class="font-medium text-foreground">Now:</span>
+    {@html profile.now}
+  </p>
+</div>
+
+<div class="flex gap-2.5 text-base leading-7">
+  <History class="mt-[3px] h-5 w-5 flex-none text-muted-foreground" />
+
+  <p class="text-muted-foreground">
+    <span class="font-medium text-foreground">Previously:</span>
+    {@html profile.previously}
+  </p>
+</div>
 						</div>
 
 						<Separator />
