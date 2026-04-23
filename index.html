@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kim Lindberg</title>
+  <meta name="description"
+    content="Senior software engineer shaped by years of building and leading complex software systems across multiple products and organizations." />
+  <meta property="og:title" content="Kim Lindberg" />
+  <meta property="og:description"
+    content="Senior software engineer shaped by years of building and leading complex software systems across multiple products and organizations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kimlindberg.com/" />
+  <meta property="og:image" content="https://kimlindberg.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kim Lindberg" />
+  <meta name="twitter:description"
+    content="Senior software engineer shaped by years of building and leading complex software systems across multiple products and organizations." />
+  <meta name="twitter:image" content="https://kimlindberg.com/og.png" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var dark = saved ? saved === "dark" : systemDark;
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      } catch (_) { }
+    })();
+  </script>
+  <style>
+    :root {
+      --radius: 0.65rem;
+      --background: oklch(1 0 0);
+      --foreground: oklch(0.141 0.005 285.823);
+      --primary: oklch(0.541 0.281 293.009);
+      --primary-foreground: oklch(0.969 0.016 293.756);
+      --muted-foreground: oklch(0.552 0.016 285.938);
+      --accent: var(--primary);
+      --accent-foreground: var(--primary-foreground);
+      --border: oklch(0.92 0.004 286.32);
+      --ring: oklch(0.702 0.183 293.541);
+    }
+
+    .dark {
+      --background: oklch(0.141 0.005 285.823);
+      --foreground: oklch(0.985 0 0);
+      --primary: oklch(0.606 0.25 292.717);
+      --primary-foreground: oklch(0.969 0.016 293.756);
+      --muted-foreground: oklch(0.705 0.015 286.067);
+      --accent: var(--primary);
+      --accent-foreground: var(--primary-foreground);
+      --border: oklch(1 0 0 / 10%);
+      --ring: oklch(0.38 0.189 293.745);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--background);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    strong {
+      color: var(--foreground);
+      font-weight: 650;
+    }
+
+    .page {
+      display: grid;
+      min-height: 100vh;
+      place-items: start center;
+      padding: 5rem 1.5rem;
+    }
+
+    .shell {
+      width: min(100%, 48rem);
+    }
+
+    .card {
+      transition: transform 200ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-0.125rem);
+    }
+
+    .site-header {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .identity {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .avatar {
+      display: inline-flex;
+      width: 3.5rem;
+      height: 3.5rem;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: oklch(0.967 0.001 286.375);
+    }
+
+    .dark .avatar {
+      background: oklch(0.274 0.006 286.033);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name-block {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: clamp(1.875rem, 4vw, 2.25rem);
+      font-weight: 650;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+    }
+
+    h1 span {
+      border-bottom: 2px solid color-mix(in oklch, var(--accent) 80%, transparent);
+      padding-bottom: 0.25rem;
+    }
+
+    .title,
+    .location,
+    .muted {
+      color: var(--muted-foreground);
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .blurb {
+      margin: 0;
+      max-width: 42rem;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.78;
+    }
+
+    .content {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .separator {
+      height: 1px;
+      background: var(--border);
+    }
+
+    .status-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .status-row {
+      display: flex;
+      gap: 0.625rem;
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .status-row p {
+      margin: 0;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 auto;
+    }
+
+    .status-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.25rem;
+      color: var(--muted-foreground);
+    }
+
+    .spinner {
+      color: var(--accent);
+      animation: spin 1s linear infinite;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) - 0.125rem);
+      padding: 0.625rem 1rem;
+      background: transparent;
+      color: var(--foreground);
+      font: inherit;
+      font-size: 1rem;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 150ms ease;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--accent-foreground);
+      transform: scale(1.01);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    .button:focus-visible,
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+
+    footer {
+      display: grid;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-row p {
+      margin: 0;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .footer-row .name {
+      color: var(--accent);
+      font-weight: 650;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      width: 2.25rem;
+      height: 2.25rem;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: calc(var(--radius) - 0.125rem);
+      background: transparent;
+      color: var(--muted-foreground);
+      cursor: pointer;
+      transition: none;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+
+    .theme-switching *,
+    .theme-switching *::before,
+    .theme-switching *::after {
+      transition: none !important;
+    }
+
+    .sun-icon {
+      display: block;
+    }
+
+    .moon-icon,
+    .dark .sun-icon {
+      display: none;
+    }
+
+    .dark .moon-icon {
+      display: block;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(var(--reveal-y, 0.5rem));
+    }
+
+    .is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 450ms ease, transform 450ms ease;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (min-width: 640px) {
+      .page {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .person {
+        align-items: flex-start;
+      }
+
+      .avatar {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .footer-row {
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="shell" data-reveal style="--reveal-y: 0.625rem" data-delay="30">
+      <section class="card" data-reveal style="--reveal-y: 0.625rem" data-delay="80">
+        <header class="site-header" data-reveal style="--reveal-y: 0.5rem" data-delay="120">
+          <div class="identity">
+            <div class="person">
+              <span class="avatar" aria-hidden="true">
+                <img src="./favicon.png" alt="" />
+              </span>
+
+              <div class="name-block">
+                <h1><span>Kim Lindberg</span></h1>
+                <p class="title">Senior Software Engineer &middot; Technical Leadership</p>
+                <div class="location">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a.92.92 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"
+                      fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" />
+                    <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="2" />
+                  </svg>
+                  <span>Dubai, United Arab Emirates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="blurb">
+            <strong>Senior software engineer</strong> shaped by years of
+            <strong>building and leading</strong> <strong>complex software systems</strong>
+            across <strong>multiple products</strong> and <strong>organizations</strong>.
+          </p>
+        </header>
+
+        <section class="content" data-reveal style="--reveal-y: 0.5rem" data-delay="180">
+          <div class="separator" aria-hidden="true"></div>
+
+          <div class="status-list">
+            <div class="status-row">
+              <svg class="status-icon spinner" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" />
+              </svg>
+              <p>
+                <strong>Now:</strong> Open to <strong>senior technical roles</strong> with
+                <strong>meaningful ownership</strong>.
+              </p>
+            </div>
+
+            <div class="status-row">
+              <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" fill="none" stroke="currentColor"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                <path d="M3 3v5h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" />
+                <path d="M12 7v5l4 2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" />
+              </svg>
+              <p><strong>Previously:</strong> Senior Software Engineering Director @ Careem.</p>
+            </div>
+          </div>
+
+          <div class="separator" aria-hidden="true"></div>
+
+          <nav class="links" aria-label="Contact links">
+            <a class="button" href="mailto:hello@kimlindberg.com?subject=Hello%20from%20kimlindberg.com"
+              title="Direct contact">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" fill="none" stroke="currentColor"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                <rect width="20" height="16" x="2" y="4" rx="2" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" />
+              </svg>
+              <span>Email</span>
+            </a>
+
+            <a class="button" href="https://www.linkedin.com/in/kimlindberg" target="_blank" rel="noreferrer"
+              title="Profile + history">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                <rect width="4" height="12" x="2" y="9" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" />
+                <circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a class="button" href="https://github.com/kimlindberg" target="_blank" rel="noreferrer"
+              title="Code + repos">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                  fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                <path d="M9 18c-4.51 2-5-2-7-2" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </nav>
+
+          <footer>
+            <div class="separator" aria-hidden="true"></div>
+            <div class="footer-row">
+              <p>
+                &copy; <span id="year">2026</span>
+                <span class="name">Kim Lindberg</span>. Built as a tiny static HTML page.
+                Deployed on Vercel.
+              </p>
+
+              <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+                <svg class="icon sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" />
+                  <path
+                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <svg class="icon moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401Z"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+          </footer>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.querySelectorAll("[data-reveal]").forEach(function (element) {
+        if (reduceMotion) {
+          element.classList.add("is-visible");
+          return;
+        }
+
+        window.setTimeout(function () {
+          element.classList.add("is-visible");
+        }, Number(element.getAttribute("data-delay") || 0));
+      });
+
+      var toggle = document.querySelector(".theme-toggle");
+      if (!toggle) return;
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        toggle.title = dark ? "Switch to light mode" : "Switch to dark mode";
+        toggle.setAttribute("aria-label", toggle.title);
+      }
+
+      applyTheme(document.documentElement.classList.contains("dark"));
+
+      toggle.addEventListener("click", function () {
+        var nextIsDark = !document.documentElement.classList.contains("dark");
+        document.documentElement.classList.add("theme-switching");
+        /* Force style flush so transition disabling is applied before theme variables change. */
+        void document.documentElement.offsetHeight;
+        try {
+          localStorage.setItem("theme", nextIsDark ? "dark" : "light");
+        } catch (_) { }
+        applyTheme(nextIsDark);
+        /* Flush once more, then restore normal transitions for later interactions. */
+        void document.documentElement.offsetHeight;
+        document.documentElement.classList.remove("theme-switching");
+      });
+    })();
+  </script>
+</body>
+
+</html>

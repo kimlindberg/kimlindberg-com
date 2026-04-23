@@ -2,7 +2,7 @@
 
 Personal website for **Kim Lindberg**.
 
-A minimal, static site that serves as a professional landing page: short bio, background, and links. Intentionally simple — closer to a digital business card than a blog or portfolio.
+A minimal static landing page: short bio, background, and links. Intentionally simple, closer to a digital business card than a blog or portfolio.
 
 Live at: **https://kimlindberg.com**
 
@@ -10,18 +10,15 @@ Live at: **https://kimlindberg.com**
 
 ## Tech stack
 
-- **SvelteKit** – app framework
-- **Tailwind CSS** – styling
-- **shadcn-svelte** (Bits UI) – UI primitives
-- **Lucide** – icons
-- **Vercel** – hosting and deployments
+- **HTML** - markup
+- **CSS** - inline styling, light/dark theme, and small reveal animation
+- **Vanilla JavaScript** - theme toggle and current year
+- **Vercel** - hosting and deployments
 
-The site uses a lightweight design system with CSS variables for theming (including light/dark mode) and minimal client-side logic.
+There are no runtime or build dependencies.
 
 ---
 
 ## Development
 
-```bash
-npm install
-npm run dev
+Open `index.html` in a browser, or serve the folder with any static file server.
